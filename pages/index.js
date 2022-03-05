@@ -6,6 +6,21 @@ import { useRouter } from "next/router";
 
 export default function Auth() {
   const { username, setUsername, secret, setSecret } = useContext(Context);
+  const router = useRouter();
+
+  function onSubmit(e) {
+    e.preventDefault();
+
+    if (username.length === 0 || secret.length === 0) return;
+
+    axios.put(
+      "https://api.chatengine.io/users",
+      { username, secret },
+      {
+        headers: { "Private-key": "b53652fb-1461-4a24-abff-96cbeb064153" },
+      }.then((r) => useRouter.push("/chats"))
+    );
+  }
 
   return (
     <div className="background">
@@ -29,7 +44,7 @@ export default function Auth() {
               type="password"
               placeholder="Password"
               className="text-input"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setSecret(e.target.value)}
             />
           </div>
 
