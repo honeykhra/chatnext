@@ -25,11 +25,7 @@ export default function Auth() {
   return (
     <div className="background">
       <div className="auth-container">
-        <form
-          action=""
-          className="auth-form"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form action="" className="auth-form" onSubmit={(e) => e.onSubmit()}>
           <div className="auth-title">NextJs Chat</div>
 
           <div className="input-container">
