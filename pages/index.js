@@ -18,14 +18,14 @@ export default function Auth() {
       { username, secret },
       {
         headers: { "Private-key": "b53652fb-1461-4a24-abff-96cbeb064153" },
-      }.then((r) => useRouter.push("/chats"))
+      }.then((r) => router.push("/chats"))
     );
   }
 
   return (
     <div className="background">
       <div className="auth-container">
-        <form action="" className="auth-form" onSubmit={(e) => e.onSubmit()}>
+        <form className="auth-form" onSubmit={(e) => e.onSubmit()}>
           <div className="auth-title">NextJs Chat</div>
 
           <div className="input-container">
