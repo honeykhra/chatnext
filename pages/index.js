@@ -13,19 +13,21 @@ export default function Auth() {
 
     if (username.length === 0 || secret.length === 0) return;
 
-    axios.put(
-      "https://api.chatengine.io/users",
-      { username, secret },
-      {
-        headers: { "Private-key": "b53652fb-1461-4a24-abff-96cbeb064153" },
-      }.then((r) => router.push("/chats"))
-    );
+    axios
+      .put(
+        "https://api.chatengine.io/users",
+        { username, secret },
+        {
+          headers: { "Private-key": "b53652fb-1461-4a24-abff-96cbeb064153" },
+        }
+      )
+      .then((r) => router.push("/chats"));
   }
 
   return (
     <div className="background">
       <div className="auth-container">
-        <form className="auth-form" onSubmit={(e) => e.onSubmit()}>
+        <form className="auth-form" onSubmit={(e) => onSubmit(e)}>
           <div className="auth-title">NextJs Chat</div>
 
           <div className="input-container">
